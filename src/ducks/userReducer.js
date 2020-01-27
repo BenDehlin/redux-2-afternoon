@@ -22,16 +22,13 @@ export function requestUserData(){
 }
 
 export default function userReducer(state=initialState, action){
-  // console.log(state, action)
   const {type, payload} = action
   switch(type){
-    // case REQUEST_USER_DATA + "_PENDING":
-    //   return {...state, loading: true}
+    case REQUEST_USER_DATA + "_PENDING":
+      return {...state, loading: true}
     case REQUEST_USER_DATA + "_FULFILLED":
       const {email, firstName, lastName} = payload.user
       return {...state, email, firstName, lastName}
-    // case REQUEST_USER_DATA + "_REJECTED":
-    //   return {...state, loading: false, errorMessage: payload}
     default:
       return state
   }
